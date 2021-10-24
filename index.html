@@ -23,7 +23,8 @@
 <div id="app2" style="display: inline-table;"></div>
 <h3>大吃</h3>
 <div id="app3" style="display: inline-table;"></div>
-
+<h3>其他</h3>
+<div id="app4" style="display: inline-table;"></div>
 <!-- 參考陽明交大實聯制網站 -->
 
 <script>
@@ -65,6 +66,16 @@ $.ajax({
   success: function(data) {
     for(var v in data) {
       $("#app3").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><img src='" + data[v].img + "' style='max-height: 100px;'><div>" + data[v].text + "</div></div></a>");
+     }
+  }
+});
+
+$.ajax({
+  url: './minxiong.json',
+  dataType: 'json',
+  success: function(data) {
+    for(var v in data) {
+      $("#app4").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><img src='" + data[v].img + "' style='max-height: 100px;'><div>" + data[v].text + "</div></div></a>");
      }
   }
 });
