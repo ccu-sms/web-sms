@@ -9,7 +9,14 @@
 
 請選擇要加入桌面的實聯制連結
 
-<div id="app"></div>
+<h3>小吃</h3>
+<div id="app1" style="display: inline-table;"></div>
+<h3>中吃</h3>
+<div id="app2" style="display: inline-table;"></div>
+<h3>大吃</h3>
+<div id="app3" style="display: inline-table;"></div>
+<h3>其他</h3>
+<div id="app4" style="display: inline-table;"></div>
 
 <script>
 $.ajax({
@@ -17,7 +24,7 @@ $.ajax({
   dataType: 'json',
   success: function(data) {
     for(var v in data) {
-      $("#app").append("<a class='linkbox' href='./homescreen.html?bms=s&id=" + v + "&redirect=0'><div class='corebox smsbox'><div>" + data[v].text + "</div></div></a>");
+      $("#app1").append("<a class='linkbox' href='./homescreen.html?bms=s&id=" + v + "&redirect=0'><div class='corebox smsbox'><div>" + data[v].text + "</div></div></a>");
     }
   }
 });
@@ -27,7 +34,7 @@ $.ajax({
   dataType: 'json',
   success: function(data) {
     for(var v in data) {
-      $("#app").append("<a class='linkbox' href='./homescreen.html?bms=m&id=" + v + "&redirect=0'><div class='corebox smsbox'><div>" + data[v].text + "</div></div></a>");
+      $("#app2").append("<a class='linkbox' href='./homescreen.html?bms=m&id=" + v + "&redirect=0'><div class='corebox smsbox'><div>" + data[v].text + "</div></div></a>");
     }
   }
 });
@@ -37,7 +44,17 @@ $.ajax({
   dataType: 'json',
   success: function(data) {
     for(var v in data) {
-      $("#app").append("<a class='linkbox' href='./homescreen.html?bms=b&id=" + v + "&redirect=0'><div class='corebox smsbox'><div>" + data[v].text + "</div></div></a>");
+      $("#app3").append("<a class='linkbox' href='./homescreen.html?bms=b&id=" + v + "&redirect=0'><div class='corebox smsbox'><div>" + data[v].text + "</div></div></a>");
+    }
+  }
+});
+
+$.ajax({
+  url: './minxiong.json',
+  dataType: 'json',
+  success: function(data) {
+    for(var v in data) {
+      $("#app4").append("<a class='linkbox' href='./homescreen.html?bms=o&id=" + v + "&redirect=0'><div class='corebox smsbox'><div>" + data[v].text + "</div></div></a>");
     }
   }
 });
