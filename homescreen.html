@@ -73,6 +73,16 @@ if(urlParams.get('redirect')=="0") {
 				send_sms(url);
   			}
 		});
+	} else if (urlParams.get('bms') == "o") {
+		$.ajax({
+			url: './minxiong.json',
+			dataType: 'json',
+			success: function(data) {
+				sms = data[urlParams.get('id')].sms;
+				url = "sms:1922" + device + "body=" + sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。";
+				send_sms(url);
+  			}
+		});
 	}
 	
 }
