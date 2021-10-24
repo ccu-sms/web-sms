@@ -1,0 +1,70 @@
+<head>
+<meta charset="utf-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link href="/index.css" rel="stylesheet">
+</head>
+
+<body>
+<h1>國立中正大學校外實聯制常用連結</h1>
+
+<form action="./homescreenlist.html">
+    <input type="submit" value="加到主畫面" />
+</form>
+
+<form action="/">
+    <input type="submit" value="校內地點" />
+</form>
+
+<h3>小吃</h3>
+<div id="app1" style="display: inline-table;"></div>
+<h3>中吃</h3>
+<div id="app2" style="display: inline-table;"></div>
+<h3>大吃</h3>
+<div id="app3" style="display: inline-table;"></div>
+
+<!-- 參考陽明交大實聯制網站 -->
+
+<script>
+function getMobileOperatingSystem() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(userAgent))
+        return "?";
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream)
+        return "&";
+ 
+    return "unknown";
+}
+
+device = getMobileOperatingSystem();
+
+$.ajax({
+  url: './littleeat.json',
+  dataType: 'json',
+  success: function(data) {
+    for(var v in data) {
+      $("#app1").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><img src='" + data[v].img + "' style='max-height: 100px;'><div>" + data[v].text + "</div></div></a>");
+     }
+  }
+});
+
+$.ajax({
+  url: './medianeat.json',
+  dataType: 'json',
+  success: function(data) {
+    for(var v in data) {
+      $("#app2").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><img src='" + data[v].img + "' style='max-height: 100px;'><div>" + data[v].text + "</div></div></a>");
+     }
+  }
+});
+
+$.ajax({
+  url: './largeeat.json',
+  dataType: 'json',
+  success: function(data) {
+    for(var v in data) {
+      $("#app3").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><img src='" + data[v].img + "' style='max-height: 100px;'><div>" + data[v].text + "</div></div></a>");
+     }
+  }
+});
+</script>
+</body>
