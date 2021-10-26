@@ -5,7 +5,7 @@
 </head>
 
 <body>
-<div class="bar">
+<div class="bar" style="margin: 0 10px 0 0">
 	<div style="font-size: 3em; font-weight: bold; display: inline-block;">國立中正大學校外<br>實聯制常用連結</div>
 
 	<form action="./homescreenlist.html">
@@ -18,13 +18,13 @@
 </div>
 
 <h3>小吃</h3>
-<div id="app1" style="display: inline-table;"></div>
+<div id="app1"></div>
 <h3>中吃</h3>
-<div id="app2" style="display: inline-table;"></div>
+<div id="app2"></div>
 <h3>大吃</h3>
-<div id="app3" style="display: inline-table;"></div>
+<div id="app3"></div>
 <h3>其他</h3>
-<div id="app4" style="display: inline-table;"></div>
+<div id="app4"></div>
 <!-- 參考陽明交大實聯制網站 -->
 
 <script>
@@ -45,7 +45,7 @@ $.ajax({
   dataType: 'json',
   success: function(data) {
     for(var v in data) {
-      $("#app1").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><img src='" + data[v].img + "' style='max-height: 100px;'><div>" + data[v].text + "</div></div></a>");
+      $("#app1").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><div class='smsimg'><img src='" + data[v].img + "' style='max-height: 150px;'></div><div class='smstext'><div>" + data[v].text + "</div></div></div></a>");
      }
   }
 });
@@ -55,7 +55,7 @@ $.ajax({
   dataType: 'json',
   success: function(data) {
     for(var v in data) {
-      $("#app2").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><img src='" + data[v].img + "' style='max-height: 100px;'><div>" + data[v].text + "</div></div></a>");
+      $("#app2").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><div class='smsimg'><img src='" + data[v].img + "' style='max-height: 150px;'></div><div class='smstext'><div>" + data[v].text + "</div></div></div></a>");
      }
   }
 });
@@ -65,7 +65,7 @@ $.ajax({
   dataType: 'json',
   success: function(data) {
     for(var v in data) {
-      $("#app3").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><img src='" + data[v].img + "' style='max-height: 100px;'><div>" + data[v].text + "</div></div></a>");
+      $("#app3").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><div class='smsimg'><img src='" + data[v].img + "' style='max-height: 150px;'></div><div class='smstext'><div>" + data[v].text + "</div></div></div></a>");
      }
   }
 });
@@ -75,8 +75,7 @@ $.ajax({
   dataType: 'json',
   success: function(data) {
     for(var v in data) {
-      $("#app4").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><img src='" + data[v].img + "' style='max-height: 100px;'><div>" + data[v].text + "</div></div></a>");
-     }
+      $("#app4").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><div class='smsimg'><img src='" + data[v].img + "'style='max-height:150px;'></div><div class='smstext'><div>" + data[v].text + "</div></div></div></a>");     }
   }
 });
 </script>
