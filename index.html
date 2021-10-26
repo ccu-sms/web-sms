@@ -2,29 +2,53 @@
 <meta charset="utf-8">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link href="./index.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 <div class="bar" style="margin: 0 10px 0 0">
-	<div style="font-size: 3em; font-weight: bold; display: inline-block;">國立中正大學校外<br>實聯制常用連結</div>
+	<div style="font-size: 3em; font-weight: bold; display: inline-block;">國立中正大學校外實聯制常用連結</div>
 
 	<form action="./homescreenlist.html">
-    	<input type="submit" value="加到主畫面" style="height: 2.5rem;font-size: 1.5rem;" />
+    	<input type="submit" class="btn-primary btn-lg" value="加到主畫面" />
 	</form>
 
 	<form action="/">
-    	<input type="submit" value="校內地點" style="height: 2.5rem;font-size: 1.5rem;" />
+    	<input type="submit" class="btn-primary btn-lg" value="校內地點" />
 	</form>
 </div>
 
-<h3>小吃</h3>
-<div id="app1"></div>
-<h3>中吃</h3>
-<div id="app2"></div>
-<h3>大吃</h3>
-<div id="app3"></div>
-<h3>其他</h3>
-<div id="app4"></div>
+
+
+<div>
+
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="tab" href="#home" style="font-size: 4rem;">小吃</a></li>
+    <li><a data-toggle="tab" href="#menu1" style="font-size: 4rem;">中吃</a></li>
+    <li><a data-toggle="tab" href="#menu2" style="font-size: 4rem;">大吃</a></li>
+    <li><a data-toggle="tab" href="#menu3" style="font-size: 4rem;">其他</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+
+    <div id="app1"></div>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <div id="app2"></div>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <div id="app3"></div>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <div id="app4"></div>
+    </div>
+  </div>
+</div>
+
 <!-- 參考陽明交大實聯制網站 -->
 
 <script>
@@ -44,7 +68,7 @@ $.ajax({
   url: './littleeat.json',
   dataType: 'json',
   success: function(data) {
-    for(var v in data) {
+    for(var v in data) {      
       $("#app1").append("<a class='linkbox' href='sms:1922" + device + "body=" + data[v].sms + " 本簡訊是簡訊實聯制發送，限防疫目的使用。'><div class='corebox smsbox'><div class='smsimg'><img src='" + data[v].img + "' style='max-height: 150px;'></div><div class='smstext'><div>" + data[v].text + "</div></div></div></a>");
      }
   }
