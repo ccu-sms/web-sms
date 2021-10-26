@@ -24,7 +24,7 @@ $.ajax({
   dataType: 'json',
   success: function(data) {
     for(var v in data) {
-      $("#app1").append("<a class='linkbox' href='./homescreen.html?bms=s&id=" + v + "&redirect=0'><div class='corebox smsbox'><div>" + data[v].text + "</div></div></a>");
+      $("#app1").append("<a class='linkbox' href='./homescreen.html?bms=s&id=" + v + "&redirect=0'><div class='corebox smsbox'><div class='smsimg'><img src='" + data[v].img + "' style='max-height: 150px;'></div><div class='smstext'><div>" + data[v].text + "</div></div></div></a>");
     }
   }
 });
@@ -34,7 +34,7 @@ $.ajax({
   dataType: 'json',
   success: function(data) {
     for(var v in data) {
-      $("#app2").append("<a class='linkbox' href='./homescreen.html?bms=m&id=" + v + "&redirect=0'><div class='corebox smsbox'><div>" + data[v].text + "</div></div></a>");
+      $("#app2").append("<a class='linkbox' href='./homescreen.html?bms=s&id=" + v + "&redirect=0'><div class='corebox smsbox'><div class='smsimg'><img src='" + data[v].img + "' style='max-height: 150px;'></div><div class='smstext'><div>" + data[v].text + "</div></div></div></a>");
     }
   }
 });
@@ -44,7 +44,7 @@ $.ajax({
   dataType: 'json',
   success: function(data) {
     for(var v in data) {
-      $("#app3").append("<a class='linkbox' href='./homescreen.html?bms=b&id=" + v + "&redirect=0'><div class='corebox smsbox'><div>" + data[v].text + "</div></div></a>");
+      $("#app3").append("<a class='linkbox' href='./homescreen.html?bms=s&id=" + v + "&redirect=0'><div class='corebox smsbox'><div class='smsimg'><img src='" + data[v].img + "' style='max-height: 150px;'></div><div class='smstext'><div>" + data[v].text + "</div></div></div></a>");
     }
   }
 });
@@ -54,7 +54,7 @@ $.ajax({
   dataType: 'json',
   success: function(data) {
     for(var v in data) {
-      $("#app4").append("<a class='linkbox' href='./homescreen.html?bms=o&id=" + v + "&redirect=0'><div class='corebox smsbox'><div>" + data[v].text + "</div></div></a>");
+      $("#app4").append("<a class='linkbox' href='./homescreen.html?bms=s&id=" + v + "&redirect=0'><div class='corebox smsbox'><div class='smsimg'><img src='" + data[v].img + "' style='max-height: 150px;'></div><div class='smstext'><div>" + data[v].text + "</div></div></div></a>");
     }
   }
 });
